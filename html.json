@@ -3079,5 +3079,127 @@
             "</div>"
         ],
         "description": "Mengubah perataan teks berdasarkan ukuran layar."
+    },
+    "35.Bootstrap 5 Grid (Offsetting)": {
+        "prefix": "bs5-grid-offset",
+        "body": [
+            "<div class=\"container my-4\">",
+            "  <h4>Grid dengan Offset (Jarak Kosong)</h4>",
+            "  <p>Kolom di bawah ini berada di tengah karena diberi offset 3 kolom (3 + 6 + 3 = 12).</p>",
+            "  <div class=\"row\">",
+            "    <div class=\"col-md-6 offset-md-3 bg-primary text-white p-3 border\">",
+            "      .col-md-6 .offset-md-3",
+            "    </div>",
+            "  </div>",
+            "</div>"
+        ],
+        "description": "Membuat jarak kosong di samping kolom untuk menengahkannya atau membuat layout asimetris."
+    },
+    "36.Bootstrap 5 Grid (Ordering)": {
+        "prefix": "bs5-grid-ordering",
+        "body": [
+            "<div class=\"container my-4\">",
+            "  <h4>Grid dengan Ordering (Mengubah Urutan)</h4>",
+            "  <p>Di layar mobile, urutan terbalik. Di desktop, urutan normal.</p>",
+            "  <div class=\"row\">",
+            "    <div class=\"col-6 order-2 order-md-1 bg-success text-white p-3 border\">",
+            "      <strong>Kolom 1 (HTML pertama)</strong><br>",
+            "      .order-2 .order-md-1",
+            "    </div>",
+            "    <div class=\"col-6 order-1 order-md-2 bg-info text-white p-3 border\">",
+            "      <strong>Kolom 2 (HTML kedua)</strong><br>",
+            "      .order-1 .order-md-2",
+            "    </div>",
+            "  </div>",
+            "</div>"
+        ],
+        "description": "Mengubah urutan visual kolom tanpa mengubah urutan di HTML, sangat berguna untuk SEO dan responsif."
+    },
+    "37.Bootstrap 5 Grid (Nesting)": {
+        "prefix": "bs5-grid-nesting",
+        "body": [
+            "<div class=\"container my-4\">",
+            "  <h4>Grid Bersarang (Nested Grid)</h4>",
+            "  <p>Di dalam kolom utama, kita bisa membuat grid lagi.</p>",
+            "  <div class=\"row\">",
+            "    <div class=\"col-md-8 bg-light p-3 border\">",
+            "      <p>.col-md-8 (Kolom Utama)</p>",
+            "      <div class=\"row\">",
+            "        <div class=\"col-6 bg-white p-2 border mt-2\">Kolom Bersarang 1</div>",
+            "        <div class=\"col-6 bg-white p-2 border mt-2\">Kolom Bersarang 2</div>",
+            "      </div>",
+            "    </div>",
+            "    <div class=\"col-md-4 bg-light p-3 border\">",
+            "      <p>.col-md-4 (Kolom Samping)</p>",
+            "    </div>",
+            "  </div>",
+            "</div>"
+        ],
+        "description": "Menunjukkan cara membuat grid baru (row dan col) di dalam sebuah kolom yang sudah ada."
+    },
+    "38.Bootstrap 5 Grid (Alignment with Flexbox)": {
+        "prefix": "bs5-grid-alignment",
+        "body": [
+            "<div class=\"container my-4\">",
+            "  <h4>Grid Alignment dengan Flexbox</h4>",
+            "  <p>Kolom-kolom ini memiliki tinggi berbeda, tapi kita bisa menengahkannya secara vertikal.</p>",
+            "  <div class=\"row align-items-center border\" style=\"height: 200px;\">",
+            "    <div class=\"col-4 bg-primary text-white p-3 border\">",
+            "      Tinggi Normal",
+            "    </div>",
+            "    <div class=\"col-4 bg-secondary text-white p-3 border\">",
+            "      <p>Ini adalah kolom dengan konten yang lebih banyak, sehingga tingginya lebih besar dari kolom lainnya.</p>",
+            "    </div>",
+            "    <div class=\"col-4 bg-info text-white p-3 border\">",
+            "      Tinggi Normal",
+            "    </div>",
+            "  </div>",
+            "  <hr class=\"my-4\">",
+            "  <p>Menjorokkan kolom ke kanan dengan justify-content-end.</p>",
+            "  <div class=\"row justify-content-end\">",
+            "      <div class=\"col-6 bg-danger text-white p-3 border\">Kolom ini di kanan</div>",
+            "  </div>",
+            "</div>"
+        ],
+        "description": "Menggunakan utility Flexbox untuk menengahkan secara vertikal (align-items-center) atau horizontal (justify-content-end)."
+    },
+    "39.Bootstrap 5 Grid (Gutters / Spacing)": {
+        "prefix": "bs5-grid-gutters",
+        "body": [
+            "<div class=\"container my-4\">",
+            "  <h4>Grid dengan Gutters (Jarak Antar Kolom)</h4>",
+            "  <p>Grid dengan gutter default.</p>",
+            "  <div class=\"row\">",
+            "    <div class=\"col-4 bg-primary p-3 text-white border\">Kolom 1</div>",
+            "    <div class=\"col-4 bg-secondary p-3 text-white border\">Kolom 2</div>",
+            "    <div class=\"col-4 bg-info p-3 text-white border\">Kolom 3</div>",
+            "  </div>",
+            "  <hr class=\"my-4\">",
+            "  <p>Grid dengan gutter lebih besar (g-4).</p>",
+            "  <div class=\"row g-4\">",
+            "    <div class=\"col-4 bg-primary p-3 text-white border\">Kolom 1</div>",
+            "    <div class=\"col-4 bg-secondary p-3 text-white border\">Kolom 2</div>",
+            "    <div class=\"col-4 bg-info p-3 text-white border\">Kolom 3</div>",
+            "  </div>",
+            "</div>"
+        ],
+        "description": "Mengatur jarak (gutter) antar kolom menggunakan class g-* atau gx-*, gy-*."
+    },
+    "40.Bootstrap 5 Grid (Wrapping)": {
+        "prefix": "bs5-grid-wrapping",
+        "body": [
+            "<div class=\"container my-4\">",
+            "  <h4>Grid Wrapping (Pindah Baris Otomatis)</h4>",
+            "  <p>Jika total kolom lebih dari 12, kolom berikutnya akan otomatis pindah ke baris baru.</p>",
+            "  <div class=\"row\">",
+            "    <div class=\"col-6 bg-primary text-white p-3 mb-3 border\">.col-6</div>",
+            "    <div class=\"col-6 bg-secondary text-white p-3 mb-3 border\">.col-6 (Total 12, masih di baris ini)</div>",
+            "    <div class=\"col-6 bg-info text-white p-3 mb-3 border\">.col-6 (Total 12, pindah ke baris baru)</div>",
+            "    <div class=\"col-5 bg-success text-white p-3 mb-3 border\">.col-5</div>",
+            "    <div class=\"col-5 bg-warning text-dark p-3 mb-3 border\">.col-5 (Total 10, masih di baris ini)</div>",
+            "  </div>",
+            "</div>"
+        ],
+        "description": "Demonstrasi bagaimana kolom akan pindah ke baris baru jika total lebar melebihi 12."
     }
 }
