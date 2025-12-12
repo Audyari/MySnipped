@@ -806,5 +806,832 @@
 			"console.log('Investasikan waktu Anda untuk memberi nama yang baik. Masa depan Anda (dan tim Anda) akan berterima kasih.');"
 		],
 		"description": "Membuat panduan dan contoh praktis tentang cara memberikan nama variabel yang baik dan mudah dibaca di JavaScript."
+	},
+	"9.JavaScript Tipe Data String": {
+		"prefix": "!js-string",
+		"body": [
+			"// =======================================================",
+			"// Snippet: Mengenal Tipe Data String di JavaScript",
+			"// Cara: Buka Developer Tools (F12) dan lihat tab Console.",
+			"// =======================================================",
+			"",
+			"$1",
+			"console.clear(); // Membersihkan console agar lebih rapi",
+			"",
+			"// --- 1. DEKLARASI STRING ---",
+			"// String adalah rangkaian karakter yang dibungkus dengan tanda kutip.",
+			"// Ada 3 cara: single quotes (''), double quotes (\"\"), dan backticks (``).",
+			"",
+			"let singleQuote = 'Halo, ini single quote';",
+			"let doubleQuote = \"Halo, ini double quote\";",
+			"let backticks = `Halo, ini backticks`;",
+			"",
+			"console.log('Single Quote:', singleQuote);",
+			"console.log('Double Quote:', doubleQuote);",
+			"console.log('Backticks:', backticks);",
+			"",
+			"// --- 2. TEMPLATE LITERALS (BACKTICKS) ---",
+			"// Keunggulan utama backticks adalah kemampuan untuk menyisipkan variabel dan ekspresi.",
+			"let nama = 'Budi';",
+			"let umur = 25;",
+			"let kalimat = `Nama saya ${nama} dan umur saya ${umur} tahun.`;",
+			"console.log('\\nTemplate Literal:', kalimat);",
+			"// Bisa juga untuk ekspresi matematika",
+			"console.log(`Tahun depan umur saya ${umur + 1} tahun.`);",
+			"",
+			"// --- 3. PROPERTI DAN METODE STRING ---",
+			"// String memiliki banyak properti dan metode bawaan yang sangat berguna.",
+			"",
+			"const teks = '  Belajar JavaScript itu Menyenangkan!  ';",
+			"console.group('\\n--- Properti & Metode String ---');",
+			"console.log('Teks asli:', teks);",
+			"",
+			"// .length: Mengembalikan panjang string",
+			"console.log('Panjang teks (.length):', teks.length);",
+			"",
+			"// .toUpperCase() dan .toLowerCase(): Mengubah huruf besar/kecil",
+			"console.log('Huruf besar (.toUpperCase()):', teks.toUpperCase());",
+			"console.log('Huruf kecil (.toLowerCase()):', teks.toLowerCase());",
+			"",
+			"// .trim(): Menghapus spasi kosong di awal dan akhir string",
+			"console.log('Setelah di-trim (.trim()):', teks.trim());",
+			"",
+			"// .includes(substring): Mengecek apakah string mengandung substring tertentu (mengembalikan true/false)",
+			"console.log('Apakah mengandung \"JavaScript\"?', teks.includes('JavaScript')); // true",
+			"console.log('Apakah mengandung \"python\"?', teks.includes('python')); // false",
+			"",
+			"// .indexOf(substring): Mengembalikan indeks pertama kali substring ditemukan (jika tidak ada, -1)",
+			"console.log('Indeks \"JavaScript\":', teks.indexOf('JavaScript')); // 12",
+			"console.log('Indeks \"python\":', teks.indexOf('python')); // -1",
+			"",
+			"// .slice(start, end): Mengambil bagian string dari indeks start hingga sebelum end",
+			"console.log('Slice [0, 7]:', teks.slice(0, 7)); // '  Belaj'",
+			"console.log('Slice [-13, -1]:', teks.slice(-13, -1)); // 'Menyenangkan!'",
+			"",
+			"// .split(separator): Memecah string menjadi array berdasarkan separator",
+			"const daftarBuah = 'Apel, Mangga, Jeruk';",
+			"console.log('Split \"Apel, Mangga, Jeruk\":', daftarBuah.split(', ')); // ['Apel', 'Mangga', 'Jeruk']",
+			"",
+			"// .replace(searchValue, newValue): Mengganti substring pertama yang ditemukan",
+			"const kalimatBaru = 'Saya suka kopi. Saya suka teh.';",
+			"console.log('Replace pertama:', kalimatBaru.replace('suka', 'gemar')); // 'Saya gemar kopi. Saya suka teh.'",
+			"// Untuk mengganti semua, gunakan regex",
+			"console.log('Replace semua:', kalimatBaru.replace(/suka/g, 'gemar')); // 'Saya gemar kopi. Saya gemar teh.'",
+			"console.groupEnd();",
+			"",
+			"",
+			"// --- 4. STRING IMMUTABILITY (TIDAK BISA DIUBAH) ---",
+			"// PENTING: Metode string TIDAK mengubah string aslinya. Mereka selalu mengembalikan string BARU.",
+			"",
+			"console.group('\\n--- Konsep Immutability ---');",
+			"let pesan = 'halo dunia';",
+			"console.log('Pesan awal:', pesan);",
+			"pesan.toUpperCase(); // Ini tidak mengubah `pesan`",
+			"console.log('Setelah .toUpperCase() (tanpa assignment):', pesan); // Masih 'halo dunia'",
+			"",
+			"// Cara yang benar adalah dengan menugaskan hasilnya ke variabel baru atau variabel yang sama",
+			"pesan = pesan.toUpperCase();",
+			"console.log('Setelah di-assign ke variabel:', pesan); // Sekarang 'HALO DUNIA'",
+			"console.groupEnd();",
+			"",
+			"",
+			"// --- 5. CONTOH PRAKTIS: MEMBERSIHKAN INPUT USER ---",
+			"console.group('\\n--- Contoh Praktis ---');",
+			"function formatUsername(input) {",
+			"  // 1. Trim spasi di awal/akhir",
+			"  // 2. Ubah ke huruf kecil",
+			"  // 3. Ganti spasi dengan underscore (_)",
+			"  return input.trim().toLowerCase().replace(/ /g, '_');",
+			"}",
+			"",
+			"const userInput1 = '  Admin Super  ';",
+			"const userInput2 = 'User Biasa';",
+			"",
+			"console.log(`Input \"${userInput1}\" menjadi:`, formatUsername(userInput1));",
+			"console.log(`Input \"${userInput2}\" menjadi:`, formatUsername(userInput2));",
+			"console.groupEnd();",
+			"",
+			"",
+			"// --- KESIMPULAN ---",
+			"// String adalah tipe data fundamental. Kuasai metode-metodenya untuk memanipulasi teks dengan efisien."
+		],
+		"description": "Membuat contoh lengkap tentang Tipe Data String, termasuk template literals, metode umum, dan konsep immutability."
+	},
+	"10.JavaScript Index dan Panjang String": {
+		"prefix": "!js-string-index-length",
+		"body": [
+			"// =======================================================",
+			"// Snippet: Penjelasan Index pada String dan Panjang Karakter",
+			"// Cara: Buka Developer Tools (F12) dan lihat tab Console.",
+			"// =======================================================",
+			"",
+			"$1",
+			"console.clear(); // Membersihkan console agar lebih rapi",
+			"",
+			"// --- 1. KONSEP DASAR: PANJANG KARAKTER (.length) ---",
+			"// Properti .length mengembalikan jumlah total karakter dalam string, termasuk spasi.",
+			"",
+			"let kalimat = 'Hello World';",
+			"console.log('String yang akan kita analisis:', kalimat);",
+			"console.log(`Panjang karakter (.length): ${kalimat.length}`); // Output: 11",
+			"console.log('Ingat: Panjang adalah 11, tapi index terakhir adalah 10!');",
+			"",
+			"",
+			"// --- 2. KONSEP DASAR: INDEX ---",
+			"// Index adalah posisi sebuah karakter dalam string. Index di JavaScript SELALU dimulai dari 0, bukan 1.",
+			"// Bayangkan seperti nomor rumah di sebuah jalan.",
+			"",
+			"console.group('\\n--- Visualisasi Index ---');",
+			"console.log('String:  H e l l o   W o r l d');",
+			"console.log('Index:   0 1 2 3 4 5 6 7 8 9 10');",
+			"console.groupEnd();",
+			"",
+			"",
+			"// --- 3. MENGAKSES KARAKTER MENGGUNAKAN INDEX ---",
+			"// Kita bisa mengakses karakter individual dengan menggunakan notasi kurung siku [index].",
+			"",
+			"console.log('\\n--- Mengakses Karakter ---');",
+			"console.log(`Karakter di index 0: \"${kalimat[0]}\"`); // Output: \"H\"",
+			"console.log(`Karakter di index 4: \"${kalimat[4]}\"`); // Output: \"o\" (spasi juga dihitung)",
+			"console.log(`Karakter di index 6: \"${kalimat[6]}\"`); // Output: \"W\"",
+			"",
+			"// Mengakses karakter terakhir menggunakan .length - 1",
+			"let indexTerakhir = kalimat.length - 1;",
+			"console.log(`Index terakhir (${indexTerakhir}): \"${kalimat[indexTerakhir]}\"`); // Output: \"d\"",
+			"",
+			"// Apa yang terjadi jika index tidak ada?",
+			"console.log(`Karakter di index 11 (tidak ada): \"${kalimat[11]}\"`); // Output: \"undefined\"",
+			"",
+			"",
+			"// --- 4. PRAKTEK: LOOPING MELALUI SETIAP KARAKTER ---",
+			"// Ini adalah penggunaan paling umum dari index dan .length.",
+			"// Kita bisa menggunakan loop `for` untuk melakukan sesuatu pada setiap karakter.",
+			"",
+			"console.group('\\n--- Looping Melalui Setiap Karakter ---');",
+			"for (let i = 0; i < kalimat.length; i++) {",
+			"  // i akan bernilai dari 0 hingga 10",
+			"  console.log(`Index ${i}: \"${kalimat[i]}\"`);",
+			"}",
+			"console.groupEnd();",
+			"",
+			"",
+			"// --- 5. METODE YANG BERHUBUNGAN DENGAN INDEX ---",
+			"// JavaScript menyediakan metode bawaan untuk mencari index dari sebuah substring.",
+			"",
+			"console.group('\\n--- Metode Terkait Index ---');",
+			"let teksCari = 'mencari kata kunci di dalam kalimat';",
+			"console.log(`Teks: \"${teksCari}\"`);",
+			"",
+			"// .indexOf(substring): Mengembalikan index pertama kali substring ditemukan.",
+			"console.log(`Index pertama \"kata\": ${teksCari.indexOf('kata')}`); // Output: 13",
+			"console.log(`Index pertama \"a\": ${teksCari.indexOf('a')}`); // Output: 5",
+			"",
+			"// .lastIndexOf(substring): Mengembalikan index terakhir kali substring ditemukan.",
+			"console.log(`Index terakhir \"a\": ${teksCari.lastIndexOf('a')}`); // Output: 28",
+			"",
+			"// Jika substring tidak ditemukan, hasilnya adalah -1.",
+			"console.log(`Index \"tidakada\": ${teksCari.indexOf('tidakada')}`); // Output: -1",
+			"console.groupEnd();",
+			"",
+			"",
+			"// --- KESIMPULAN ---",
+			"console.log('%c--- Kesimpulan ---', 'font-weight: bold; color: #28a745; font-size: 16px;');",
+			"console.log('1. .length adalah jumlah total karakter.');",
+			"console.log('2. Index adalah posisi karakter, SELALU dimulai dari 0.');",
+			"console.log('3. Index karakter terakhir selalu string.length - 1.');",
+			"console.log('4. Akses karakter dengan string[index].');"
+		],
+		"description": "Membuat contoh visual dan praktis tentang konsep index dan panjang (.length) pada string JavaScript."
+	},
+	"11.JavaScript Life Easier Methods": {
+		"prefix": "!js-life-easier-methods",
+		"body": [
+			"// =======================================================",
+			"// Snippet: Method-Method Javascript Yang Memudahkan Hidup Kita",
+			"// Cara: Buka Developer Tools (F12) dan lihat tab Console.",
+			"// =======================================================",
+			"",
+			"$1",
+			"console.clear();",
+			"console.log('%c--- Method & Sintaks JavaScript Pembaras Hidup ---', 'font-weight: bold; color: #007ACC; font-size: 16px;');",
+			"",
+			"// --- DATA CONTOH ---",
+			"const users = [",
+			"  { id: 1, name: 'Alice', isActive: true, role: 'admin' },",
+			"  { id: 2, name: 'Bob', isActive: false, role: 'user' },",
+			"  { id: 3, name: 'Charlie', isActive: true, role: 'user' }",
+			"];",
+			"const numbers = [10, 5, 100, 25, 5];",
+			"",
+			"// --- 1. ARRAY METHODS YANG WAJIB DIKUASAI ---",
+			"// Ini menggantikan loop `for` yang panjang dan bertele-tele.",
+			"",
+			"console.group('\\n1. Array Methods');",
+			"",
+			"// .map(): Membuat array BARU dengan hasil transformasi setiap elemen.",
+			"// Sangat berguna untuk mengambil properti tertentu dari array objek.",
+			"const userNames = users.map(user => user.name);",
+			"console.log('.map() -> Daftar Nama:', userNames);",
+			"",
+			"// .filter(): Membuat array BARU yang berisi elemen-elemen yang lolos kriteria.",
+			"const activeUsers = users.filter(user => user.isActive);",
+			"console.log('.filter() -> User Aktif:', activeUsers);",
+			"",
+			"// .find(): Mengembalikan elemen PERTAMA yang ditemukan.",
+			"const userBob = users.find(user => user.name === 'Bob');",
+			"console.log('.find() -> Cari Bob:', userBob);",
+			"",
+			"// .reduce(): \"Menggulung\" array menjadi satu nilai (bisa number, object, atau array).",
+			"// Contoh: menjumlahkan semua angka.",
+			"const totalNumbers = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);",
+			"console.log('.reduce() -> Total Angka:', totalNumbers);",
+			"",
+			"// .includes(): Cek sederhana apakah array mengandung nilai tertentu (mengembalikan true/false).",
+			"console.log('.includes() -> Ada angka 100?', numbers.includes(100));",
+			"console.log('.includes() -> Ada angka 99?', numbers.includes(99));",
+			"console.groupEnd();",
+			"",
+			"",
+			"// --- 2. OBJECT METHODS & SPREAD SYNTAX ---",
+			"// Memudahkan untuk memanipulasi objek.",
+			"",
+			"console.group('\\n2. Object Methods & Spread Syntax');",
+			"const sampleUser = users[0];",
+			"",
+			"// Object.keys(), Object.values(), Object.entries()",
+			"console.log('Object.keys(sampleUser):', Object.keys(sampleUser));",
+			"console.log('Object.values(sampleUser):', Object.values(sampleUser));",
+			"console.log('Object.entries(sampleUser):', Object.entries(sampleUser));",
+			"",
+			"// Spread Syntax (...) untuk Object: Menyalin atau menggabungkan objek dengan mudah.",
+			"// Ini cara yang aman untuk membuat salinan atau update objek tanpa mengubah aslinya (immutable).",
+			"const updatedUser = { ...sampleUser, lastLogin: '2023-10-27' }; // Menambah properti baru",
+			"const roleChangedUser = { ...sampleUser, role: 'superadmin' }; // Mengubah properti yang ada",
+			"console.log('User asli:', sampleUser);",
+			"console.log('User setelah ditambah properti:', updatedUser);",
+			"console.log('User setelah role diubah:', roleChangedUser);",
+			"console.groupEnd();",
+			"",
+			"",
+			"// --- 3. MODERN SYNTAX: OPTIONAL CHAINING (?.) & NULLISH COALESCING (??) ---",
+			"// Dua sintaks ini adalah penyelamat untuk mencegah error dan memberikan nilai default.",
+			"",
+			"console.group('\\n3. Modern Syntax: ?. dan ??');",
+			"const userWithAddress = { ...sampleUser, address: { city: 'Jakarta', zip: '12345' } };",
+			"const userWithoutAddress = { name: 'Diana' }; // Tidak punya properti 'address'",
+			"",
+			"// Optional Chaining (?.): Mengakses properti bersarang dengan aman.",
+			"// Jika `address` tidak ada, kode tidak akan error, tapi mengembalikan `undefined`.",
+			"console.log('Alamat userWithAddress:', userWithAddress.address?.city); // 'Jakarta'",
+			"console.log('Alamat userWithoutAddress:', userWithoutAddress.address?.city); // undefined (TANPA ERROR!)",
+			"// Tanpa ?. akan error: Cannot read properties of undefined (reading 'city')",
+			"",
+			"// Nullish Coalescing (??): Memberikan nilai default HANYA untuk `null` atau `undefined`.",
+			"// Ini lebih aman dari `||` karena `||` juga akan memberikan default untuk nilai falsy lainnya (0, '', false).",
+			"const userRole = userWithoutAddress.role ?? 'Guest';",
+			"const userIsActive = userWithoutAddress.isActive ?? false; // Jika `isActive` tidak ada, default-nya false",
+			"const productStock = 0; // Anggap saja stok 0",
+			"const displayStock = productStock ?? 'Kosong'; // Hasilnya 0, karena 0 bukan null/undefined",
+			"// const displayStockSalah = productStock || 'Kosong'; // Hasilnya 'Kosong', ini yang sering menyebabkan bug!",
+			"console.log('Role userWithoutAddress:', userRole);",
+			"console.log('Display stok (benar):', displayStock);",
+			"console.groupEnd();",
+			"",
+			"",
+			"// --- KESIMPULAN ---",
+			"console.log('%c--- Kesimpulan ---', 'font-weight: bold; color: #28a745; font-size: 16px;');",
+			"console.log('1. Kuasai Array Methods (.map, .filter, .reduce) untuk manipulasi data.');",
+			"console.log('2. Gunakan Spread Syntax (...) untuk manipulasi objek yang aman.');",
+			"console.log('3. Manfaatkan Optional Chaining (?.) dan Nullish Coalescing (??) untuk kode yang lebih robust.');",
+			"console.log('4. Ini adalah fondasi untuk menulis JavaScript modern yang bersih dan efisien.');"
+		],
+		"description": "Kumpulan method dan sintaks JavaScript modern yang sering digunakan dan mempermudah hidup developer."
+	},
+	// --- SNIPPET PARETO 80/20 ---
+	// 1. Yang paling sering digunakan: Arrow Function multi-baris
+	"12.Arrow Function (Pareto)": {
+		"prefix": "!js-arrow",
+		"body": [
+			"const ${1:name} = (${2:params}) => {",
+			"\t$0",
+			"};"
+		],
+		"description": "Membuat arrow function (80% use case). Fokus: nama, parameter, dan logika."
+	},
+	// 2. Sangat umum untuk callback: Arrow Function satu baris
+	"13.Arrow Function One-Liner (Pareto)": {
+		"prefix": "!js-arrow=>1",
+		"body": "(${1:params}) => ${2:return_value}",
+		"description": "Membuat arrow function satu baris dengan implicit return. Sempurna untuk .map(), .filter(), dll."
+	},
+	// 3. Masih relevan: Function Declaration klasik
+	"14.Function Declaration (Pareto)": {
+		"prefix": "!js-func",
+		"body": [
+			"function ${1:name}(${2:params}) {",
+			"\t$0",
+			"}"
+		],
+		"description": "Membuat deklarasi fungsi klasik. Berguna untuk hoisting atau class methods."
+	},
+	// --- SNIPPET NULL & UNDEFINED ---
+	// 1. Snippet Paling Praktis: Cek apakah variabel null atau undefined
+	"15.If Null or Undefined": {
+		"prefix": "!js-ifnull",
+		"body": [
+			"if (${1:variable} == null) {",
+			"\t${2:// Handle null or undefined case}",
+			"}"
+		],
+		"description": "Membuat blok if untuk memeriksa apakah variabel bernilai null atau undefined."
+	},
+	// 2. Snippet untuk Memberikan Nilai Default
+	"16.Nullish Coalescing (Default Value)": {
+		"prefix": "!js-ndef",
+		"body": "${1:variable} ?? ${2:defaultValue}",
+		"description": "Memberikan nilai default jika variabel bernilai null atau undefined."
+	},
+	// 3. Snippet untuk Cek Falsy (Lebih Luas)
+	"17.If Falsy": {
+		"prefix": "!js-ifFalsy",
+		"body": [
+			"if (!${1:variable}) {",
+			"\t${2:// Handle falsy case (null, undefined, 0, '', false, NaN)}",
+			"}"
+		],
+		"description": "Membuat blok if untuk memeriksa apakah variabel bernilai 'falsy'."
+	},
+	// --- SNIPPET MATH & ANGKA ACAK ---
+	// 1. Snippet Paling Berguna: Membuat Angka Acak dalam Rentang Tertentu
+	"18.Random Integer (Inclusive)": {
+		"prefix": "!js-rand",
+		"body": "Math.floor(Math.random() * (${1:max} - ${2:min} + 1)) + ${2:min}",
+		"description": "Membuat angka acak integer antara min dan max (inklusif)."
+	},
+	// 2. Snippet Umum: Memanggil Method Math Lainnya
+	"19.Math Method": {
+		"prefix": "!js-math",
+		"body": "Math.${1:method}(${2:arguments})",
+		"description": "Menyisipkan method dari object Math (misal: floor, round, max, PI)."
+	},
+	// === Operator Pembanding ===
+	"20.If Strictly Equal (===)": {
+		"prefix": "!js-if===",
+		"body": [
+			"if (${1:variable} === ${2:value}) {",
+			"\t${3:// your code here}",
+			"}"
+		],
+		"description": "Buat blok if dengan operator strictly equal (===)"
+	},
+	"21.If Strictly Not Equal (!==)": {
+		"prefix": "!js-if!==",
+		"body": [
+			"if (${1:variable} !== ${2:value}) {",
+			"\t${3:// your code here}",
+			"}"
+		],
+		"description": "Buat blok if dengan operator strictly not equal (!==)"
+	},
+	"22.If Equal (==)": {
+		"prefix": "!js-if==",
+		"body": [
+			"if (${1:variable} == ${2:value}) {",
+			"\t${3:// your code here}",
+			"}"
+		],
+		"description": "Buat blok if dengan operator equal (==)"
+	},
+	"23.If Not Equal (!=)": {
+		"prefix": "!js-if!=",
+		"body": [
+			"if (${1:variable} != ${2:value}) {",
+			"\t${3:// your code here}",
+			"}"
+		],
+		"description": "Buat blok if dengan operator not equal (!=)"
+	},
+	"24.If Greater Than (>)": {
+		"prefix": "!js-if>",
+		"body": [
+			"if (${1:variable} > ${2:value}) {",
+			"\t${3:// your code here}",
+			"}"
+		],
+		"description": "Buat blok if dengan operator greater than (>)"
+	},
+	"25.If Less Than (<)": {
+		"prefix": "!js-if<",
+		"body": [
+			"if (${1:variable} < ${2:value}) {",
+			"\t${3:// your code here}",
+			"}"
+		],
+		"description": "Buat blok if dengan operator less than (<)"
+	},
+	"26.If Greater Than or Equal (>=)": {
+		"prefix": "!js-if>=",
+		"body": [
+			"if (${1:variable} >= ${2:value}) {",
+			"\t${3:// your code here}",
+			"}"
+		],
+		"description": "Buat blok if dengan operator greater than or equal (>=)"
+	},
+	"27.If Less Than or Equal (<=)": {
+		"prefix": "!js-if<=",
+		"body": [
+			"if (${1:variable} <= ${2:value}) {",
+			"\t${3:// your code here}",
+			"}"
+		],
+		"description": "Buat blok if dengan operator less than or equal (<=)"
+	},
+	"28.Dokumentasi: Perbedaan == dan ===": {
+		"prefix": "!js-doc-equals",
+		"body": [
+			"// === PERBEDAAN == (Dua Sama Dengan) dan === (Tiga Sama Dengan) ===",
+			"//",
+			"// == (Loose Equality): Hanya membandingkan NILAI. Tipe data akan disamakan terlebih dahulu (Type Coercion).",
+			"// === (Strict Equality): Membandingkan NILAI dan TIPE DATA. Ini yang direkomendasikan.",
+			"//",
+			"// CONTOH:",
+			"console.log(10 == \"10\");    // true, karena \"10\" diubah jadi 10",
+			"console.log(10 === \"10\");   // false, karena number != string",
+			"",
+			"console.log(true == 1);     // true, karena true diubah jadi 1",
+			"console.log(true === 1);    // false, karena boolean != number",
+			"",
+			"console.log(null == undefined); // true (kasus khusus)",
+			"console.log(null === undefined); // false, karena tipe datanya berbeda",
+			"",
+			"// REKOMENDASI: Selalu gunakan === untuk menghindari bug yang tidak terduga!",
+			"",
+			"$0"
+		],
+		"description": "Sisipkan dokumentasi dan contoh kode tentang perbedaan operator == dan ==="
+	},
+	// --- Console, Alert, & Prompt Snippets ---
+	"29.Console Log": {
+		"prefix": "!js-cl",
+		"body": [
+			"console.log(${1:value});"
+		],
+		"description": "Cepat menulis console.log()"
+	},
+	"30.Alert Box": {
+		"prefix": "!js-al",
+		"body": [
+			"alert('${1:Pesan penting!}');"
+		],
+		"description": "Cepat menulis alert()"
+	},
+	"31.Prompt Input": {
+		"prefix": "!js-prompt",
+		"body": [
+			"const ${1:namaVariabel} = prompt('${2:Masukkan sesuatu:}');",
+			"$0"
+		],
+		"description": "Cepat menulis prompt() dan menyimpan hasilnya ke variabel"
+	},
+	"32.Console Log dengan Label": {
+		"prefix": "!js-cll",
+		"body": [
+			"console.log('${1:Label}:', ${2:variabel});"
+		],
+		"description": "Cepat menulis console.log dengan label agar lebih jelas"
+	},
+	// --- SNIPPET OOP ---
+	"1.JavaScript Perkenalan Prototype": {
+		"prefix": "!oopjs-prototype-intro",
+		"body": [
+			"// =======================================================",
+			"// Snippet: Perkenalan Tentang Prototype di JavaScript",
+			"// Cara: Buka Developer Tools (F12) dan lihat tab Console.",
+			"// =======================================================",
+			"",
+			"$1",
+			"console.clear();",
+			"console.log('%c--- Konsep Prototype di JavaScript ---', 'font-weight: bold; color: #007ACC; font-size: 16px;');",
+			"",
+			"// --- 1. MASALAH: MENAMBAHKAN METODE DI DALAM KONSTRUKTOR ---",
+			"// Jika kita membuat metode (fungsi) di dalam constructor function,",
+			"// setiap instance akan memiliki salinan fungsi yang sama. Ini boros memori!",
+			"",
+			"console.group('\\n1. Masalah: Metode di dalam Constructor');",
+			"function UserLama(name) {",
+			"  this.name = name;",
+			"  // Setiap objek UserLama akan membuat fungsi sayHello ini sendiri",
+			"  this.sayHello = function() {",
+			"    console.log(`Halo, nama saya ${this.name}`);",
+			"  };",
+			"}",
+			"",
+			"const user1 = new UserLama('Alice');",
+			"const user2 = new UserLama('Bob');",
+			"",
+			"console.log('Apakah fungsi sayHello user1 dan user2 sama?');",
+			"console.log('user1.sayHello === user2.sayHello:', user1.sayHello === user2.sayHello); // FALSE!",
+			"console.log('Ini tidak efisien karena setiap objek menyimpan fungsi yang identik.');",
+			"console.groupEnd();",
+			"",
+			"",
+			"// --- 2. SOLUSI: MENGGUNAKAN PROTOTYPE ---",
+			"// Setiap fungsi di JavaScript memiliki properti `prototype`.",
+			"// Kita bisa menambahkan metode ke properti ini, dan semua instance akan membaginya.",
+			"",
+			"console.group('\\n2. Solusi: Menggunakan Prototype');",
+			"function User(name) {",
+			"  this.name = name; // Properti unik tetap di sini",
+			"}",
+			"",
+			"// Metode ditempatkan di `prototype`",
+			"User.prototype.sayHello = function() {",
+			"  console.log(`Halo, nama saya ${this.name} (dari prototype).`);",
+			"};",
+			"",
+			"User.prototype.greet = function(otherUser) {",
+			"  console.log(`Hai ${otherUser.name}, salam kenal dari ${this.name}!`);",
+			"};",
+			"",
+			"const user3 = new User('Charlie');",
+			"const user4 = new User('Diana');",
+			"",
+			"user3.sayHello(); // Method tidak ada di user3, JS akan mencarinya di prototypenya",
+			"user4.greet(user3);",
+			"",
+			"console.log('\\nApakah fungsi sayHello user3 dan user4 sama?');",
+			"console.log('user3.sayHello === user4.sayHello:', user3.sayHello === user4.sayHello); // TRUE!",
+			"console.log('Ini jauh lebih efisien!');",
+			"",
+			"// Melihat rantai prototype",
+			"console.log('\\nMelihat prototype dari user3:');",
+			"console.log(Object.getPrototypeOf(user3) === User.prototype); // TRUE",
+			"console.groupEnd();",
+			"",
+			"",
+			"// --- 3. CARA MODERN: SINTAKS `class` (SYNTACTIC SUGAR) ---",
+			"// `class` hanyalah cara penulisan yang lebih modern dan bersih.",
+			"// Di balik layar, JavaScript tetap menggunakan sistem prototype.",
+			"",
+			"console.group('\\n3. Cara Modern: Sintaks `class`');",
+			"class UserModern {",
+			"  // Properti unik didefinisikan di constructor",
+			"  constructor(name) {",
+			"    this.name = name;",
+			"  }",
+			"",
+			"  // Metode yang dibagikan ditulis langsung di dalam body class",
+			"  sayHello() {",
+			"    console.log(`Halo, saya ${this.name} (dari class).`);",
+			"  }",
+			"}",
+			"",
+			"const user5 = new UserModern('Eve');",
+			"user5.sayHello();",
+			"",
+			"// Mari kita buktikan bahwa `class` menggunakan prototype",
+			"console.log('\\nBukti bahwa `class` menggunakan prototype:');",
+			"console.log('Prototype user5 adalah UserModern.prototype?', Object.getPrototypeOf(user5) === UserModern.prototype); // TRUE",
+			"console.log('Metode sayHello ada di prototype?', 'sayHello' in UserModern.prototype); // TRUE",
+			"console.groupEnd();",
+			"",
+			"",
+			"// --- KESIMPULAN ---",
+			"console.log('%c--- Kesimpulan ---', 'font-weight: bold; color: #28a745; font-size: 16px;');",
+			"console.log('1. Prototype adalah mekanisme JavaScript untuk berbagi properti dan metode di antara objek.');",
+			"console.log('2. Menambah metode ke `ConstructorFunction.prototype` jauh lebih hemat memori.');",
+			"console.log('3. Sintaks `class` adalah cara yang lebih mudah dibaca untuk melakukan hal yang sama.');",
+			"console.log('4. Memahami prototype adalah kunci untuk memahami pewarisan (inheritance) di JavaScript.');"
+		],
+		"description": "Membuat contoh perkenalan konsep Prototype di JavaScript, dari constructor function hingga sintaks class."
+	},
+	//
+	// --- SNIPPET INSPEKSI DOM ---
+	// 1. Snippet Paling Praktis: Ambil 1 Elemen dan Lihat di Console
+	"1.Query Selector and Log": {
+		"prefix": "!DOMlogsel",
+		"body": [
+			"const ${1:element} = document.querySelector('${2:#my-id}');",
+			"console.log(${1:element});"
+		],
+		"description": "Mendapatkan satu elemen dengan CSS selector dan menampilkannya di console untuk inspeksi."
+	},
+	// 2. Snippet untuk Banyak Elemen: Ambil Semua Elemen yang Cocok
+	"2.Query Selector All and Log": {
+		"prefix": "!DOMlogselall",
+		"body": [
+			"const ${1:elements} = document.querySelectorAll('${2:.my-class}');",
+			"console.log(${1:elements});"
+		],
+		"description": "Mendapatkan semua elemen dengan CSS selector dan menampilkannya di console."
+	},
+	// 3. Snippet untuk Melihat Isi Teks
+	"3.Get Element and Log Text Content": {
+		"prefix": "!DOMlogtext",
+		"body": [
+			"const ${1:element} = document.querySelector('${2:#my-id}');",
+			"console.log(${1:element}.textContent);"
+		],
+		"description": "Mendapatkan elemen dan menampilkan isi teksnya (textContent) di console."
+	},
+	// --- SNIPPET MENDAPATKAN ELEMEN BERDASARKAN ID ---
+	// 1. Cara Modern & Fleksibel (Direkomendasikan)
+	"4.Query Selector by ID": {
+		"prefix": "!DOMbyid",
+		"body": [
+			"const ${1:element} = document.querySelector('${2:#my-id}');",
+			"console.log(${1:element});"
+		],
+		"description": "Mendapatkan satu elemen berdasarkan ID menggunakan querySelector dan menampilkannya di console."
+	},
+	// 2. Cara Klasik & Spesifik
+	"5. Get Element By ID": {
+		"prefix": "!DOMgetid",
+		"body": [
+			"const ${1:element} = document.getElementById('${2:my-id}');",
+			"console.log(${1:element});"
+		],
+		"description": "Mendapatkan satu elemen berdasarkan ID menggunakan getElementById dan menampilkannya di console."
+	},
+	// --- SNIPPET UNTUK TAG & CLASS ---
+	// 1. Mendapatkan Elemen berdasarkan Tag (Cara Modern)
+	"6.Query Selector All by Tag": {
+		"prefix": "!DOMbytag",
+		"body": [
+			"const ${1:elements} = document.querySelectorAll('${2:tagName}');",
+			"console.log(${1:elements});"
+		],
+		"description": "Mendapatkan semua elemen berdasarkan nama tag (p, li, div, dll) menggunakan querySelectorAll."
+	},
+	// 2. Mendapatkan Elemen berdasarkan Class (Cara Modern)
+	"7.Query Selector All by Class": {
+		"prefix": "!DOMbyclass",
+		"body": [
+			"const ${1:elements} = document.querySelectorAll('${2:.my-class}');",
+			"console.log(${1:elements});"
+		],
+		"description": "Mendapatkan semua elemen berdasarkan nama class menggunakan querySelectorAll."
+	},
+	// 3. Mendapatkan Elemen berdasarkan Tag (Cara Klasik)
+	"8.Get Elements By Tag Name": {
+		"prefix": "!DOMgettag",
+		"body": [
+			"const ${1:elements} = document.getElementsByTagName('${2:tagName}');",
+			"console.log(${1:elements});"
+		],
+		"description": "Mendapatkan semua elemen berdasarkan nama tag menggunakan getElementsByTagName."
+	},
+	// 4. Mendapatkan Elemen berdasarkan Class (Cara Klasik)
+	"9.Get Elements By Class Name": {
+		"prefix": "!DOMgetclass",
+		"body": [
+			"const ${1:elements} = document.getElementsByClassName('${2:my-class}');",
+			"console.log(${1:elements});"
+		],
+		"description": "Mendapatkan semua elemen berdasarkan nama class menggunakan getElementsByClassName."
+	},
+	// --- SNIPPET POWER-UP QUERYSELECTOR ---
+	// 1. Snippet Utama: Pilih 1 Elemen (Untuk Inspeksi atau Manipulasi)
+	"10.Query Selector (Single Element)": {
+		"prefix": "!DOMqs",
+		"body": [
+			"const ${1:element} = document.querySelector('${2:#my-id}');",
+			"console.log(${1:element});"
+		],
+		"description": "Memilih satu elemen dengan querySelector dan menampilkannya di console. Sangat fleksibel untuk ID, class, atau tag."
+	},
+	// 2. Snippet "Penghemat Waktu": Pilih Banyak Elemen dan Langsung Diulang
+	"11.Query Selector All (Loop with forEach)": {
+		"prefix": "!DOMqsa",
+		"body": [
+			"const ${1:elements} = document.querySelectorAll('${2:.my-class}');",
+			"",
+			"${1:elements}.forEach((${3:el}) => {",
+			"\t${4:// lakukan sesuatu dengan setiap elemen 'el'}",
+			"});"
+		],
+		"description": "Memilih banyak elemen dan langsung membuat loop forEach. Ini adalah snippet yang paling sering digunakan!"
+	},
+	// --- SNIPPET MANIPULASI KONTEN ELEMEN ---
+	// 1. Paling Aman & Cepat: Manipulasi Teks Murni
+	"12.Get and Set textContent": {
+		"prefix": "!DOMtext",
+		"body": [
+			"// Direkomendasikan untuk manipulasi teks (aman & cepat)",
+			"const ${1:element} = document.querySelector('${2:#my-id}');",
+			"console.log('Teks awal:', ${1:element}.textContent); // Ambil teks",
+			"",
+			"${1:element}.textContent = '${3:Teks baru yang aman}'; // Ubah teks"
+		],
+		"description": "Mendapatkan dan mengatur konten teks murni menggunakan textContent. Aman dari serangan XSS."
+	},
+	// 2. Paling Kuat (Tapi Berisiko): Manipulasi HTML
+	"13.Get and Set innerHTML": {
+		"prefix": "!DOMhtml",
+		"body": [
+			"// HATI-HATI: Jangan gunakan untuk input dari pengguna tanpa validasi (risiko XSS)",
+			"const ${1:element} = document.querySelector('${2:#my-id}');",
+			"console.log('HTML awal:', ${1:element}.innerHTML); // Ambil HTML",
+			"",
+			"${1:element}.innerHTML = '${3:<strong>Teks baru dengan format HTML</strong>}'; // Ubah HTML"
+		],
+		"description": "Mendapatkan dan mengatur konten HTML menggunakan innerHTML. Sangat kuat tapi berisiko keamanan."
+	},
+	// 3. Sadar Akan CSS: Mendapatkan Teks yang Terlihat
+	"14.Get innerText": {
+		"prefix": "!DOMinnerText",
+		"body": [
+			"// Mendapatkan teks yang terlihat oleh pengguna (memperhitungkan CSS). Lebih lambat.",
+			"const ${1:element} = document.querySelector('${2:#my-id}');",
+			"console.log('Teks yang terlihat:', ${1:element}.innerText);"
+		],
+		"description": "Mendapatkan konten teks yang 'ter-render' (visible) menggunakan innerText."
+	},
+	// --- SNIPPET NODE JS ---
+	"1.JavaScript Interaksi dengan Node.js REPL": {
+		"prefix": "!nodejs-repl-intro",
+		"body": [
+			"// =======================================================",
+			"// Snippet: Berinteraksi dengan REPL Milik Node.js",
+			"// INI ADALAH PANDUAN, BUKAN KODE UNTUK DIJALANKAN DI BROWSER.",
+			"//",
+			"// CARA MENGGUNAKAN:",
+			"// 1. Buka Terminal/Command Prompt di VS Code (Ctrl+` atau View > Terminal).",
+			"// 2. Ketik 'node' lalu tekan Enter.",
+			"// 3. Kamu sekarang ada di dalam REPL. Coba ketik kode di bawah ini satu per satu.",
+			"// =======================================================",
+			"",
+			"$1",
+			"// --- 1. APA ITU REPL? ---",
+			"// REPL adalah singkatan dari:",
+			"// - Read   : Membaca input yang kamu ketik.",
+			"// - Eval   : Mengevaluasi (menjalankan) input tersebut.",
+			"// - Print  : Mencetak hasilnya ke layar.",
+			"// - Loop   : Mengulang proses ini, menunggu input berikutnya.",
+			"//",
+			"// Ini seperti console.log yang bisa terus berinteraksi!",
+			"",
+			"// --- 2. EKSPRESI SEDERHANA ---",
+			"// Coba ketik ini di REPL dan tekan Enter setiap baris:",
+			"1 + 1",
+			"\"Halo\" + \" \" + \"Node.js\"",
+			"Math.pow(2, 3) // 2 pangkat 3",
+			"",
+			"// --- 3. VARIABEL DAN KONSTANTA ---",
+			"// Kamu bisa mendeklarasikan variabel dan menggunakannya.",
+			"let nama = 'Budi';",
+			"let usia = 30;",
+			"console.log(`Nama saya ${nama} dan saya ${usia} tahun.`);",
+			"",
+			"// --- 4. SIHIR VARIABEL UNDERSCORE (_) ---",
+			"// Di REPL, underscore (_) secara otomatis menyimpan hasil dari ekspresi terakhir!",
+			"// Ini sangat berguna untuk perhitungan berantai.",
+			"10 * 5",
+			"// Hasilnya adalah 50. Sekarang coba ketik:",
+			"50 + 20",
+			"// Hasilnya adalah 70 (50 + 20). Coba lagi:",
+			"70/ 2",
+			"// Hasilnya adalah 35 (70 / 2).",
+			"",
+			"// --- 5. MEMBUAT FUNGSI ---",
+			"// Kamu bisa membuat fungsi multi-baris. REPL akan otomatis mendeteksinya.",
+			"// Coba ketik ini dan tekan Enter setiap baris:",
+			"function tambah(a, b) {",
+			"  return a + b;",
+			"}",
+			"// Setelah baris terakhir, tekan Enter dua kali untuk menyelesaikan fungsi.",
+			"// Sekarang, panggil fungsi tersebut:",
+			"tambah(10, 15)",
+			"",
+			"// --- 6. MENGGUNAKAN MODUL INTI NODE.JS ---",
+			"// Kamu bisa langsung menggunakan modul bawaan seperti 'fs' (File System).",
+			"// Pertama, kita perlu mengimpor modulnya.",
+			"const fs = require('fs');",
+			"// Kemudian, kita bisa menulis file. Coba ini:",
+			"fs.writeFileSync('repl-test.txt', 'Halo, ini dari REPL!');",
+			"// Sekarang, coba baca file yang baru saja kamu buat:",
+			"fs.readFileSync('repl-test.txt', 'utf8')",
+			"// Kamu akan melihat teks yang baru saja kamu tulis!",
+			"",
+			"// --- 7. PERINTAH KHUSUS REPL ---",
+			"// Ada beberapa perintah yang dimulai dengan titik (.) untuk mengontrol REPL.",
+			"//",
+			"// .help     : Menampilkan daftar semua perintah khusus.",
+			"// .clear    : Menghapus semua variabel yang telah dibuat. Reset sesi.",
+			"// .exit     : Keluar dari REPL dan kembali ke terminal biasa.",
+			"// .save <namafile> : Menyimpan semua perintah yang telah diketik ke sebuah file.",
+			"// .load <namafile> : Memuat dan menjalankan perintah dari sebuah file.",
+			"",
+			"// --- KESIMPULAN ---",
+			"// Gunakan REPL untuk:",
+			"// - Menguji potongan kode kecil dengan cepat.",
+			"// - Memahami cara kerja fungsi atau modul baru.",
+			"// - Melakukan perhitungan cepat.",
+			"// - Debugging algoritma sederhana.",
+			"//",
+			"// Ini adalah salah satu alat paling berguna dalam toolkit seorang developer Node.js!"
+		],
+		"description": "Membuat panduan lengkap dan interaktif tentang cara menggunakan Node.js REPL untuk belajar dan mengetes kode."
 	}
 }
